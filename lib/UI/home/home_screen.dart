@@ -1,11 +1,7 @@
-import 'dart:async';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:twitter_clone/UI/feed/feed_screen.dart';
+import 'package:twitter_clone/UI/search/SearchPage.dart';
 import 'package:twitter_clone/common_widgets/bottomMenuBar/bottomMenuBar.dart';
-
-import '../../state/appState.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -30,12 +26,12 @@ class _HomeScreenState extends State<HomeScreen> {
           scaffoldKey: _scaffoldKey,
           refreshIndicatorKey: refreshIndicatorKey,
         );
-      // case 1:
-      //   return SearchPage(scaffoldKey: _scaffoldKey);
-      // case 2:
-      //   return NotificationPage(scaffoldKey: _scaffoldKey);
-      // case 3:
-      //   return ChatListPage(scaffoldKey: _scaffoldKey);
+      case 1:
+        return SearchScreen(scaffoldKey: _scaffoldKey);
+      case 2:
+        return SearchScreen(scaffoldKey: _scaffoldKey);
+      case 3:
+        return SearchScreen(scaffoldKey: _scaffoldKey);
       default:
         return FeedScreen(scaffoldKey: _scaffoldKey);
     }

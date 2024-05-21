@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:twitter_clone/UI/authentication/sign_in_screen.dart';
 import 'package:twitter_clone/UI/authentication/sign_up_screen.dart';
 import 'package:twitter_clone/UI/authentication/verify_email_screen.dart';
+import 'package:twitter_clone/UI/search/SearchPage.dart';
 
 import '../UI/authentication/forgot_password_screen.dart';
 import '../UI/authentication/welcome_screen.dart';
@@ -73,19 +74,19 @@ class Routes {
             builder: (BuildContext context) => const WelcomeScreen());
       case "SignIn":
         return CustomRoute<bool>(
-            builder: (BuildContext context) => SignInScreen());
+            builder: (BuildContext context) => const SignInScreen());
       case "SignUp":
         return CustomRoute<bool>(
-            builder: (BuildContext context) => SignUpScreen());
+            builder: (BuildContext context) => const SignUpScreen());
       case "ForgetPasswordPage":
         return CustomRoute<bool>(
             builder: (BuildContext context) => const ForgetPasswordScreen());
       case "VerifyEmailPage":
         return CustomRoute<bool>(
-            builder: (BuildContext context) => VerifyEmailScreen());
-      // case "SearchPage":
-      //   return CustomRoute<bool>(
-      //       builder: (BuildContext context) => SearchPage());
+            builder: (BuildContext context) => const VerifyEmailScreen());
+      case "SearchPage":
+        return CustomRoute<bool>(
+            builder: (BuildContext context) => const SearchScreen());
       // case "ImageViewPge":
       //   return CustomRoute<bool>(
       //       builder: (BuildContext context) => const ImageViewPge());
