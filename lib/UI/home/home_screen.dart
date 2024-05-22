@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:twitter_clone/UI/feed/feed_screen.dart';
 import 'package:twitter_clone/UI/search/SearchPage.dart';
-import 'package:twitter_clone/common_widgets/bottomMenuBar/bottomMenuBar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

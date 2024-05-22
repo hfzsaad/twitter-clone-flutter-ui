@@ -3,7 +3,11 @@ import 'package:provider/provider.dart';
 
 import '../../common_widgets/app_icons.dart';
 import '../../common_widgets/bottomMenuBar/tabItem.dart';
+import '../../common_widgets/tweet/tweetBottomSheet.dart';
+import '../../common_widgets/tweet/tweet_section.dart';
+import '../../models/feedModel.dart';
 import '../../utils/colors.dart';
+import '../../utils/enum.dart';
 
 class FeedScreen extends StatelessWidget {
   const FeedScreen(
@@ -13,21 +17,6 @@ class FeedScreen extends StatelessWidget {
   final GlobalKey<ScaffoldState> scaffoldKey;
 
   final GlobalKey<RefreshIndicatorState>? refreshIndicatorKey;
-
-  Widget _floatingActionButton(BuildContext context) {
-    return FloatingActionButton(
-      onPressed: () {
-        Navigator.of(context).pushNamed('/CreateFeedPage/tweet');
-      },
-      child: customIcon(
-        context,
-        icon: AppIcon.fabTweet,
-        isTwitterIcon: true,
-        iconColor: Theme.of(context).colorScheme.onPrimary,
-        size: 25,
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -79,16 +68,38 @@ class _FeedPageBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer(
       builder: (context, state, child) {
+        final List<FeedModel> list = [
+          FeedModel(userId: '123', createdAt: ''),
+          FeedModel(userId: '456', createdAt: ''),
+          FeedModel(userId: '789', createdAt: ''),
+          FeedModel(userId: '112', createdAt: ''),
+          FeedModel(userId: '213', createdAt: ''),
+          FeedModel(userId: '123', createdAt: ''),
+          FeedModel(userId: '456', createdAt: ''),
+          FeedModel(userId: '789', createdAt: ''),
+          FeedModel(userId: '112', createdAt: ''),
+          FeedModel(userId: '213', createdAt: ''),
+          FeedModel(userId: '123', createdAt: ''),
+          FeedModel(userId: '456', createdAt: ''),
+          FeedModel(userId: '789', createdAt: ''),
+          FeedModel(userId: '112', createdAt: ''),
+          FeedModel(userId: '213', createdAt: '')
+        ];
         return CustomScrollView(
           slivers: <Widget>[
             child!,
             SliverList(
               delegate: SliverChildListDelegate(
-                [1, 2, 3].map(
+                list.map(
                       (model) {
-                    return Container(
-                      color: Colors.white,
-                      child: const Text("Tweet Data")
+                    return TweetSection(
+                      model: model,
+                      trailing: TweetBottomSheet().tweetOptionIcon(
+                          context,
+                          model: model,
+                          type: TweetType.Tweet,
+                          scaffoldKey: scaffoldKey),
+                      scaffoldKey: scaffoldKey,
                     );
                   },
                 ).toList(),
